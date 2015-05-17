@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+
+
+    <ListView
+        android:id="@+id/list_empoyees"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="15dp"
+        android:layout_margin="10dp"
+        android:divider="@android:drawable/divider_horizontal_bright"
+        android:dividerHeight="8dp"
+        android:listSelector="@android:drawable/list_selector_background" />
+
+</RelativeLayout>
