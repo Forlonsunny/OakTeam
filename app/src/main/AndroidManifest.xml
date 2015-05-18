@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name=".Activity.AddEmployeeActivity"
-            android:label="@string/add_new_company"
+            android:label="@string/add_new_employee"
             android:screenOrientation="portrait"
            />
         <activity android:name=".Activity.EmployeeDetailsActivity">

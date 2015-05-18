@@ -21,7 +21,7 @@ public class AddEmployeeActivity extends Activity implements OnClickListener {
 
 	public static final String TAG = "AddEmployeeActivity";
 
-	private EditText mTxtCompanyName;
+	private EditText mTxtEmployeeName;
 	private EditText mTxtAddress;
 	private EditText mTxtPhoneNumber;
 	private EditText mTxtWebsite;
@@ -40,7 +40,7 @@ public class AddEmployeeActivity extends Activity implements OnClickListener {
 	}
 
 	private void initViews() {
-		this.mTxtCompanyName = (EditText) findViewById(R.id.txt_company_name);
+		this.mTxtEmployeeName = (EditText) findViewById(R.id.txt_employee_name);
 		this.mTxtAddress = (EditText) findViewById(R.id.txt_address);
 		this.mTxtPhoneNumber = (EditText) findViewById(R.id.txt_phone_number);
 		this.mTxtWebsite = (EditText) findViewById(R.id.txt_website);
@@ -53,16 +53,16 @@ public class AddEmployeeActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_add:
-			Editable companyName = mTxtCompanyName.getText();
+			Editable EmployeeName = mTxtEmployeeName.getText();
 			Editable address = mTxtAddress.getText();
 			Editable phoneNumber = mTxtPhoneNumber.getText();
 			Editable website = mTxtWebsite.getText();
-			if (!TextUtils.isEmpty(companyName) && !TextUtils.isEmpty(address)
+			if (!TextUtils.isEmpty(EmployeeName) && !TextUtils.isEmpty(address)
 					&& !TextUtils.isEmpty(website)
 					&& !TextUtils.isEmpty(phoneNumber)) {
 				// add the employee to database
 				Employee createdEmployee = mEmployeeDao.createEmployee(
-						companyName.toString(), address.toString(),
+						EmployeeName.toString(), address.toString(),
 						website.toString(), phoneNumber.toString());
 				
 				Log.d(TAG, "added Employee : "+ createdEmployee.getName());

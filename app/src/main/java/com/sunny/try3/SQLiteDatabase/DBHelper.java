@@ -49,8 +49,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		Log.w(TAG,
 				"Upgrading the database from version " + oldVersion + " to "+ newVersion);
-		// clear all data
-		//db.execSQL("DROP TABLE IF EXISTS " + TABLE_EMPLOYEES);
+
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_EMPLOYEES);
 		
 		// recreate the tables

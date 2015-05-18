@@ -4,63 +4,75 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp" >
 
+
+
+
+
+
     <EditText
-        android:id="@+id/txt_employe_name"
+        android:id="@+id/txt_employee_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:hint="@string/Employee_name"
+        android:inputType="text"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/black"
         android:layout_alignParentTop="true"
-        android:text="@string/Employee_name"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textStyle="bold" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/txt_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
+        android:hint="@string/address"
+        android:inputType="text"
+        android:lines="2"
         android:maxLines="2"
-        android:text="@string/address"
         android:textAppearance="?android:attr/textAppearance"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"
-        android:layout_below="@+id/txt_employe_name"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/txt_employee_name"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
-        android:textSize="20sp"
         android:id="@+id/txt_website"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:linksClickable="false"
-        android:text="@string/website"
-        android:textColor="@android:color/darker_gray"
-        android:layout_below="@+id/txt_address"
+        android:hint="@string/website"
+        android:inputType="text"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/txt_employee_name"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
 
     <EditText
-        android:textSize="20sp"
         android:id="@+id/txt_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autoLink="phone"
-        android:linksClickable="false"
-        android:text="@string/phone_number"
-        android:textColor="@android:color/darker_gray"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:textAppearance="?android:attr/textAppearance"
+        android:textColor="@android:color/black"
         android:layout_below="@+id/txt_website"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <Button
+        android:id="@+id/btupdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save to Update"
-        android:id="@+id/btupsave"
-
-        android:layout_below="@+id/txt_phone_number" />
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="2dp"
+        android:text="Save To Update"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@+id/txt_phone_number"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

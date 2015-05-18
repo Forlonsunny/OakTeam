@@ -8,7 +8,7 @@ import com.sunny.try3.Activity.ListEmployeesActivity;
 import com.sunny.try3.R;
 
 public class MainSplashScreen extends Activity {
-//hello is test
+//hello it  is test for github
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +16,7 @@ public class MainSplashScreen extends Activity {
 
 // METHOD 1
 
-        /****** Create Thread that will sleep for 5 seconds *************/
+        /****** Create Thread that will sleep for 2 seconds *************/
         Thread background = new Thread() {
             public void run() {
 

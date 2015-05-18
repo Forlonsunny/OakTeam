@@ -24,6 +24,7 @@ public class ListEmployeesActivity extends ActionBarActivity {
 	
 	public static final int REQUEST_CODE_ADD_EMPLOYEE= 40;
 	public static final int REQUEST_CODE_DELETE_EMPLOYEE= 20;
+	public static final int REQUEST_CODE_UPDATED_EMPLOYEE= 20;
 	public static final String EXTRA_ADDED_EMPLOYEE = "extra_key_added_employee";
 	public static final String EXTRA_DELETED_EMPLOYEE = "extra_key_delete_employee";
 	public static final String EXTRA_UPDATED_EMPLOYEE = "extra_key_updated_employee";
@@ -41,7 +42,7 @@ public class ListEmployeesActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_list_employees);
 		
 		// initialize views
-		initViews();
+		initilicationOfViews();
 		
 		// fill the listView
 		mEmployeeDao = new EmployeeDAO(this);
@@ -66,7 +67,7 @@ public class ListEmployeesActivity extends ActionBarActivity {
 		
 	}
 	
-	private void initViews() {
+	private void initilicationOfViews() {
 		this.mListviewEmployees = (ListView) findViewById(R.id.list_empoyees);
 
 	}
@@ -104,8 +105,7 @@ public class ListEmployeesActivity extends ActionBarActivity {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		//System.out.println("request code" + requestCode);
-		//System.out.println("result code" + resultCode);
+
 		if (requestCode == REQUEST_CODE_ADD_EMPLOYEE) {
 			if (data != null) {
 				Employee createdEmployee = (Employee) data.getSerializableExtra(EXTRA_ADDED_EMPLOYEE);
@@ -145,12 +145,20 @@ public class ListEmployeesActivity extends ActionBarActivity {
 	}
 
 
-
-
 	@Override
-	protected void onPause() {
-		super.onPause();
-		setResult(ListEmployeesActivity.RESULT_OK);
+	protected void onPostResume() {
+		super.onPostResume();
+		mEmployeeDao = new EmployeeDAO(this);
+		mListEmployess = mEmployeeDao.getAllEmpoyees();
+		if(mListEmployess != null && !mListEmployess.isEmpty()) {
+			mAdapter = new ListEmployeesAdapter(this, mListEmployess);
+			mListviewEmployees.setAdapter(mAdapter);
+		}
+		else {
 
+			mListviewEmployees.setVisibility(View.GONE);
+		}
 	}
+
+
 }

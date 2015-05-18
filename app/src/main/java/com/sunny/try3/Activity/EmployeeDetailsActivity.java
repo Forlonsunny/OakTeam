@@ -14,7 +14,7 @@ import com.sunny.try3.R;
 import com.sunny.try3.SQLiteDatabase.EmployeeDAO;
 
 /**
- * Created by Mobile App Develop on 16-5-15.
+ * Created by  Sunny Mobile App Develop on 16-5-15.
  */
 public class EmployeeDetailsActivity extends Activity {
     TextView emName;
@@ -32,7 +32,7 @@ public class EmployeeDetailsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.employee_details_xml);
 
-intitView();
+        initilizationofViews();
         Intent mEIntent=getIntent();
         flag=mEIntent.getStringExtra("id");
         if(flag!=null)
@@ -66,10 +66,8 @@ intitView();
             public void onClick(View v) {
                 aEmployeeDAO.deleteEmployee(eMid);
                 Log.d("EmployeeDetailsActivity", "Delated Employee : " + eMid);
-                Intent intent = new Intent();
-                intent.putExtra(ListEmployeesActivity.EXTRA_DELETED_EMPLOYEE,20);
-                setResult(RESULT_OK, intent);
-                Toast.makeText(EmployeeDetailsActivity.this, "Deleted Employee successfully", Toast.LENGTH_LONG).show();
+
+                Toast.makeText(EmployeeDetailsActivity.this, "Deleted Employee Successfully", Toast.LENGTH_LONG).show();
                 finish();
 
             }
@@ -79,7 +77,7 @@ intitView();
 
 
 
-    private void intitView() {
+    private void initilizationofViews() {
         emName=(TextView)findViewById(R.id.txt_employe_name);
         emAddress=(TextView)findViewById(R.id.txt_address);
         emPhone=(TextView)findViewById(R.id.txt_phone_number);

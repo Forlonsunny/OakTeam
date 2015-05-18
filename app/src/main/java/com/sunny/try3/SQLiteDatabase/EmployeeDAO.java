@@ -65,21 +65,18 @@ public class EmployeeDAO {
         cursor.close();
         return newEmployee;
     }
-    public Employee updateEmployee(Long insertId,String name, String address, String website,
+    public void updateEmployee(Long insertId,String name, String address, String website,
                                   String phoneNumber) {
+        open();
         ContentValues values = new ContentValues();
         values.put(DBHelper.COLUMN_EMPLOYEE_NAME, name);
         values.put(DBHelper.COLUMN_EMPLOYEE_ADDRESS, address);
         values.put(DBHelper.COLUMN_EMPLOYEES_WEBSITE, website);
         values.put(DBHelper.COLUMN_EMPLOYEES_PHONE_NUMBER, phoneNumber);
+        mDatabase.update(DBHelper.TABLE_EMPLOYEES,
+                values, DBHelper.COLUMN_EMPLOYEE_ID + " = " +insertId, null);
+        close();
 
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_EMPLOYEES, mAllColumns,
-                DBHelper.COLUMN_EMPLOYEE_ID + " = " + insertId, null, null,
-                null, null);
-        cursor.moveToFirst();
-        Employee newEmployee = cursorToEmployee(cursor);
-        cursor.close();
-        return newEmployee;
     }
 
 

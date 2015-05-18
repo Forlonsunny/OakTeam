@@ -16,14 +16,14 @@ import com.sunny.try3.R;
 import com.sunny.try3.SQLiteDatabase.EmployeeDAO;
 
 /**
- * Created by Mobile App Develop on 16-5-15.
+ * Created by Sunny Mobile App Develop on 16-5-15.
  */
 public class EmployeeDetailsEditActivity extends Activity {
     EditText emName;
     EditText emAddress;
     EditText emPhone;
     EditText emWebA;
-    Button btreSave;
+    Button btupdate;
 
     EmployeeDAO aEmployeeDAO;
     Employee aEmployee=null;
@@ -52,7 +52,7 @@ public class EmployeeDetailsEditActivity extends Activity {
             emWebA.setText(eWebAddress);
             emPhone.setText(ephone);
         }
-        btreSave.setOnClickListener(new View.OnClickListener() {
+        btupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Editable employeeName = emName.getText();
@@ -63,15 +63,16 @@ public class EmployeeDetailsEditActivity extends Activity {
                         && !TextUtils.isEmpty(website)
                         && !TextUtils.isEmpty(phoneNumber)) {
                     // add the employee to database
-                    Employee editedEmployee = aEmployeeDAO.updateEmployee(eMid,
+                 aEmployeeDAO.updateEmployee(eMid,
                             employeeName.toString(), address.toString(),
                             website.toString(), phoneNumber.toString());
 
+
                     Log.d("EmployeeDetails", "updated Employee : " + employeeName.toString());
-                    Intent intentupdat = new Intent();
-                    intentupdat.putExtra(ListEmployeesActivity.EXTRA_UPDATED_EMPLOYEE, editedEmployee);
-                    setResult(RESULT_OK, intentupdat);
-                    Toast.makeText(EmployeeDetailsEditActivity.this, "employee_updaed_successfully", Toast.LENGTH_LONG).show();
+
+
+
+                    Toast.makeText(EmployeeDetailsEditActivity.this, "Employee Updated Successfully", Toast.LENGTH_LONG).show();
                     finish();
                 } else {
                     Toast.makeText(EmployeeDetailsEditActivity.this, R.string.empty_fields_message, Toast.LENGTH_LONG).show();
@@ -83,11 +84,11 @@ public class EmployeeDetailsEditActivity extends Activity {
     }
 
     private void intitView() {
-        emName=(EditText)findViewById(R.id.txt_employe_name);
+        emName=(EditText)findViewById(R.id.txt_employee_name);
         emAddress=(EditText)findViewById(R.id.txt_address);
         emPhone=(EditText)findViewById(R.id.txt_phone_number);
         emWebA=(EditText)findViewById(R.id.txt_website);
-        btreSave=(Button)findViewById(R.id.btupsave);
+        btupdate=(Button)findViewById(R.id.btupdate);
 
 
     }
